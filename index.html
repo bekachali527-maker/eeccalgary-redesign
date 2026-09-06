@@ -82,6 +82,19 @@
       transform: scale(1) translateY(0);
       opacity: 1;
     }
+    .smart-color-img {
+      filter: grayscale(100%);
+      transition: filter 0.5s ease, transform 0.6s ease;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .group:hover .smart-color-img,
+      .smart-color-img:hover {
+        filter: grayscale(0%);
+      }
+    }
+    .smart-color-img.in-view {
+      filter: grayscale(0%) !important;
+    }
   </style>
 </head>
 <body class="font-sans antialiased selection:bg-tc-crimson selection:text-white overflow-x-hidden">
@@ -184,7 +197,8 @@
           <a href="#service" class="w-full sm:w-auto text-center px-7 py-3.5 sm:py-4 rounded-xl sm:rounded-full bg-tc-black text-white text-xs font-bold uppercase tracking-widest hover:bg-zinc-800 active:bg-zinc-900 transition shadow-sm">
             Join This Sunday
           </a>
-          <a href="about.html" class="w-full sm:w-auto text-center px-7 py-3.5 sm:py-4 rounded-xl sm:rounded-full border border-zinc-300 text-zinc-900 text-xs font-bold uppercase tracking-widest hover:border-black active:bg-zinc-100 transition">
+          <!-- Green Text: About Our Church -->
+          <a href="about.html" class="w-full sm:w-auto text-center px-7 py-3.5 sm:py-4 rounded-xl sm:rounded-full border border-emerald-600 text-emerald-600 hover:border-emerald-700 hover:text-emerald-700 text-xs font-bold uppercase tracking-widest active:bg-emerald-50 transition">
             About Our Church
           </a>
         </div>
@@ -196,7 +210,7 @@
           <img 
             src="sanctuary-master.jpg" 
             alt="EEC Calgary Sanctuary & Interior" 
-            class="w-full h-full object-cover grayscale contrast-115 group-hover:grayscale-0 group-hover:scale-105 transition duration-700 ease-out"
+            class="smart-color-img w-full h-full object-cover contrast-115 group-hover:scale-105"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"></div>
 
@@ -231,8 +245,9 @@
           <p class="font-ethiopic text-xs text-zinc-500 font-semibold mt-0.5">የአምልኮ እና የጸሎት ፕሮግራሞች</p>
         </div>
         <div>
-          <button onclick="openCalendarModal()" class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-zinc-100 hover:bg-tc-black hover:text-white text-zinc-800 text-xs font-bold uppercase tracking-widest transition border border-zinc-200 shadow-xs cursor-pointer">
-            <i class="fa-regular fa-calendar-days text-tc-crimson"></i>
+          <!-- Green Text: View Full Calendar Schedule -->
+          <button onclick="openCalendarModal()" class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-zinc-100 hover:bg-zinc-200 text-emerald-600 text-xs font-bold uppercase tracking-widest transition border border-emerald-600/30 shadow-xs cursor-pointer">
+            <i class="fa-regular fa-calendar-days text-emerald-600"></i>
             <span>View Full Calendar Schedule</span>
           </button>
         </div>
@@ -270,7 +285,7 @@
           </div>
         </div>
 
-        <!-- Location with Google Maps button -->
+        <!-- Location with Green Text Button: Open in Google Maps -->
         <div class="p-6 sm:p-8 border border-tc-border rounded-2xl bg-zinc-50/60 flex flex-col justify-between">
           <div>
             <span class="text-[11px] font-mono text-tc-crimson uppercase tracking-widest block font-semibold">Gathering Facility</span>
@@ -280,15 +295,16 @@
               Calgary AB, T2K 3R5. Assembling in the Thornhill Baptist Church facility.
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-zinc-200 flex items-center justify-between gap-2">
+          <div class="mt-6 pt-4 border-t border-zinc-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
             <span class="text-xs font-mono text-zinc-400">Parking Onsite</span>
             <a 
               href="https://maps.google.com/?q=128+Tache+Ave+NW+Calgary+AB+T2K+3R5" 
               target="_blank" 
               rel="noopener noreferrer" 
-              class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-tc-black text-white hover:bg-tc-crimson text-[11px] font-bold uppercase tracking-wider transition"
+              class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-5 py-3 rounded-xl bg-emerald-50 border border-emerald-600 hover:bg-emerald-100 text-emerald-600 font-bold text-xs uppercase tracking-widest transition shadow-sm active:scale-95"
             >
-              <i class="fa-solid fa-map-location-dot"></i> Open Map
+              <i class="fa-solid fa-map-location-dot text-sm text-emerald-600"></i>
+              <span>Open in Google Maps</span>
             </a>
           </div>
         </div>
@@ -395,12 +411,12 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         
         <!-- 1. Youth: ministry-youth.jpg -->
-        <div class="border border-tc-border rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-lg transition">
+        <div class="border border-tc-border rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-lg transition group">
           <div class="h-48 sm:h-52 bg-zinc-900 overflow-hidden relative">
             <img 
               src="ministry-youth.jpg" 
               alt="Youth & Young Adults" 
-              class="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition duration-500"
+              class="smart-color-img w-full h-full object-cover contrast-125 group-hover:scale-105"
             />
           </div>
           <div class="p-6 sm:p-7 flex-grow flex flex-col justify-between">
@@ -419,12 +435,12 @@
         </div>
 
         <!-- 2. Children: ministry-children.jpg -->
-        <div class="border border-tc-border rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-lg transition">
+        <div class="border border-tc-border rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-lg transition group">
           <div class="h-48 sm:h-52 bg-zinc-900 overflow-hidden relative">
             <img 
               src="ministry-children.jpg" 
               alt="Kids Ministry" 
-              class="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition duration-500"
+              class="smart-color-img w-full h-full object-cover contrast-125 group-hover:scale-105"
             />
           </div>
           <div class="p-6 sm:p-7 flex-grow flex flex-col justify-between">
@@ -443,12 +459,12 @@
         </div>
 
         <!-- 3. Small Groups: ministry-smallgroups.jpg -->
-        <div class="border border-tc-border rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-lg transition">
+        <div class="border border-tc-border rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-lg transition group">
           <div class="h-48 sm:h-52 bg-zinc-900 overflow-hidden relative">
             <img 
               src="ministry-smallgroups.jpg" 
               alt="Small Groups" 
-              class="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition duration-500"
+              class="smart-color-img w-full h-full object-cover contrast-125 group-hover:scale-105"
             />
           </div>
           <div class="p-6 sm:p-7 flex-grow flex flex-col justify-between">
@@ -467,12 +483,12 @@
         </div>
 
         <!-- 4. Women: ministry-women.jpg -->
-        <div class="border border-tc-border rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-lg transition">
+        <div class="border border-tc-border rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-lg transition group">
           <div class="h-48 sm:h-52 bg-zinc-900 overflow-hidden relative">
             <img 
               src="ministry-women.jpg" 
               alt="Women's Ministry" 
-              class="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition duration-500"
+              class="smart-color-img w-full h-full object-cover contrast-125 group-hover:scale-105"
             />
           </div>
           <div class="p-6 sm:p-7 flex-grow flex flex-col justify-between">
@@ -491,12 +507,12 @@
         </div>
 
         <!-- 5. Men: ministry-men.jpg -->
-        <div class="border border-tc-border rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-lg transition">
+        <div class="border border-tc-border rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-lg transition group">
           <div class="h-48 sm:h-52 bg-zinc-900 overflow-hidden relative">
             <img 
               src="ministry-men.jpg" 
               alt="Men's Ministry" 
-              class="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition duration-500"
+              class="smart-color-img w-full h-full object-cover contrast-125 group-hover:scale-105"
             />
           </div>
           <div class="p-6 sm:p-7 flex-grow flex flex-col justify-between">
@@ -515,12 +531,12 @@
         </div>
 
         <!-- 6. Family: ministry-family.jpg -->
-        <div class="border border-tc-border rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-lg transition">
+        <div class="border border-tc-border rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-lg transition group">
           <div class="h-48 sm:h-52 bg-zinc-900 overflow-hidden relative">
             <img 
               src="ministry-family.jpg" 
               alt="Family Ministry" 
-              class="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition duration-500"
+              class="smart-color-img w-full h-full object-cover contrast-125 group-hover:scale-105"
             />
           </div>
           <div class="p-6 sm:p-7 flex-grow flex flex-col justify-between">
@@ -538,8 +554,8 @@
           </div>
         </div>
 
-        <!-- 7. Worship: ministry-worship.jpg -->
-        <div class="border border-tc-border rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-lg transition md:col-span-2 lg:col-span-3">
+        <!-- 7. Worship: ministry-worship.jpg with Green Text Button: Learn More & Join Team -->
+        <div class="border border-tc-border rounded-2xl overflow-hidden flex flex-col justify-between hover:shadow-lg transition md:col-span-2 lg:col-span-3 group">
           <div class="p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 bg-zinc-50">
             <div>
               <span class="text-[10px] font-mono uppercase tracking-widest text-tc-crimson font-bold">House of Worshippers • 30+ Years</span>
@@ -549,8 +565,8 @@
                 Leading the congregation into God's presence each Sunday through heartfelt praise, traditional and modern gospel songs, and musical excellence.
               </p>
             </div>
-            <button onclick="openMinistryModal('worship')" class="flex-shrink-0 px-6 py-3 rounded-full bg-tc-black text-white text-xs font-bold uppercase tracking-widest hover:bg-zinc-800 transition cursor-pointer">
-              Learn More & Join Team
+            <button onclick="openMinistryModal('worship')" class="flex-shrink-0 px-6 py-3 rounded-full bg-emerald-50 border border-emerald-600 hover:bg-emerald-100 text-emerald-600 text-xs font-bold uppercase tracking-widest transition cursor-pointer">
+              Learn more and join team
             </button>
           </div>
         </div>
@@ -581,7 +597,7 @@
             id="modalImage" 
             src="" 
             alt="Ministry Photo" 
-            class="w-full h-full object-cover grayscale contrast-110 hover:grayscale-0 transition duration-500" 
+            class="w-full h-full object-cover contrast-110" 
           />
           <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
           <div class="absolute bottom-4 left-6 right-6">
@@ -817,7 +833,6 @@
 
     calendarBackdrop.addEventListener('click', closeCalendarModal);
 
-    // Ministries Modal configured to load exact local filenames
     const ministriesData = {
       youth: {
         tag: "Ages 13–28",
@@ -996,13 +1011,30 @@
     modalCloseBtn.addEventListener('click', closeMinistryModal);
     modalBackdrop.addEventListener('click', closeMinistryModal);
 
-    // Close Modals on Escape key press
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         if (modal.classList.contains('modal-visible')) closeMinistryModal();
         if (calendarModal.classList.contains('modal-visible')) closeCalendarModal();
       }
     });
+
+    if ('IntersectionObserver' in window) {
+      const colorObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          } else {
+            entry.target.classList.remove('in-view');
+          }
+        });
+      }, {
+        threshold: 0.35
+      });
+
+      document.querySelectorAll('.smart-color-img').forEach(img => {
+        colorObserver.observe(img);
+      });
+    }
   </script>
 </body>
 </html>
